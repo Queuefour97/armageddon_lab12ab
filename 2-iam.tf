@@ -114,13 +114,13 @@ resource "aws_iam_role_policy" "correlation_agent_policy" {
         # Scan waf-events for the correlation time window
         # Uses FilterExpression on event_epoch field
         Effect   = "Allow"
-        Action   = ["dynamodb:Scan"]
+        Action   = ["dynamodb:Scan", "dynamodb:GetItem", "dynamodb:Query"]
         Resource = [aws_dynamodb_table.waf_events.arn]
       },
       {
         # Write and read correlation findings
         Effect   = "Allow"
-        Action   = ["dynamodb:PutItem", "dynamodb:GetItem"]
+        Action   = ["dynamodb:PutItem", "dynamodb:GetItem", "dynamodb:UpdateItem"]
         Resource = [aws_dynamodb_table.correlation_findings.arn]
       },
       {
