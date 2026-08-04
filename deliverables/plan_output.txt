@@ -1,0 +1,373 @@
+[0m[1mdata.archive_file.waf_analyzer_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.correlation_agent_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.detection_lambda: Reading...[0m[0m
+[0m[1mdata.archive_file.example_python: Reading...[0m[0m
+[0m[1mdata.archive_file.soar_agent_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.node_example: Reading...[0m[0m
+[0m[1mdata.archive_file.executive_report_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.example_python: Read complete after 0s [id=bde7ae1dcee41eac4c56f7877e3dfdecdada3fe4][0m
+[0m[1mdata.archive_file.detection_lambda: Read complete after 0s [id=d563957411fc88390566c873fe4e96a1ef355133][0m
+[0m[1mdata.archive_file.executive_report_zip: Read complete after 0s [id=ffdbdda7ea97143a90ea90ffa8ad3fab1f24ca76][0m
+[0m[1mdata.archive_file.correlation_agent_zip: Read complete after 0s [id=54d8d3f61366b75c860c74ee139d3913914aeb9d][0m
+[0m[1mdata.archive_file.node_example: Read complete after 0s [id=a9cedeaee943ce8ccccda874153a4db641759882][0m
+[0m[1mdata.archive_file.waf_analyzer_zip: Read complete after 0s [id=061ced7600ef11fa512fc30b0a9fd3d6c982e2c2][0m
+[0m[1mdata.archive_file.soar_agent_zip: Read complete after 0s [id=ed9b9e2f9cd68d4137a6f67c56c821e6d164e280][0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1maws_api_gateway_rest_api.lambda_rest_api: Refreshing state... [id=8y22tce4s1][0m
+[0m[1maws_sns_topic.critical_alert: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert][0m
+[0m[1maws_iam_role.lambda_role: Refreshing state... [id=chewbacca_lambda_role][0m
+[0m[1maws_dynamodb_table.token_tracking: Refreshing state... [id=token-tracking][0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1maws_cognito_user_pool.cognito_pool: Refreshing state... [id=us-east-1_UeZvl9fmr][0m
+[0m[1maws_cloudwatch_log_group.waf_logs_chewbacca: Refreshing state... [id=aws-waf-logs-chewbacca][0m
+[0m[1maws_iam_role.waf_analyzer_role: Refreshing state... [id=armageddon-waf-analyzer-role][0m
+[0m[1maws_cloudwatch_log_group.soar_agent_logs: Refreshing state... [id=/aws/lambda/soar-response-agent][0m
+[0m[1maws_dynamodb_table.security_incidents: Refreshing state... [id=security-incidents][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=975598471165][0m
+[0m[1maws_cloudwatch_log_group.waf_logs: Refreshing state... [id=aws-waf-logs-armageddon][0m
+[0m[1maws_iam_role.correlation_agent_role: Refreshing state... [id=armageddon-correlation-agent-role][0m
+[0m[1maws_cloudwatch_log_group.detector_log_group: Refreshing state... [id=/aws/lambda/unused-token-detector][0m
+[0m[1maws_iam_role.eventbridge_scheduler_role: Refreshing state... [id=eventbridge_token_detector_role][0m
+[0m[1maws_cloudwatch_event_rule.critical_finding_rule: Refreshing state... [id=waf-critical-finding-rule][0m
+[0m[1maws_cloudwatch_event_rule.medium_high_finding_rule: Refreshing state... [id=waf-medium-high-finding-rule][0m
+[0m[1maws_dynamodb_table.correlation_findings: Refreshing state... [id=waf-correlation-findings][0m
+[0m[1maws_cloudwatch_log_group.correlation_agent_logs: Refreshing state... [id=/aws/lambda/waf-threat-correlation-agent][0m
+[0m[1mdata.aws_partition.current: Reading...[0m[0m
+[0m[1mdata.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1maws_dynamodb_table.waf_events: Refreshing state... [id=waf-events][0m
+[0m[1maws_iam_role.soar_agent_role: Refreshing state... [id=armageddon-soar-agent-role][0m
+[0m[1maws_cloudwatch_log_group.waf_analyzer_logs: Refreshing state... [id=/aws/lambda/waf-bedrock-analyzer][0m
+[0m[1maws_sns_topic_policy.critical_alert_policy: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert][0m
+[0m[1maws_sns_topic_subscription.critical_alert_email: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert:c78d64a8-0d3d-4ece-95ac-634a70c5f0a0][0m
+[0m[1maws_api_gateway_resource.api_rest_python: Refreshing state... [id=to7x4u][0m
+[0m[1maws_api_gateway_resource.api_rest_node: Refreshing state... [id=nh2scc][0m
+[0m[1maws_iam_policy.lambda_dynamodb_policy: Refreshing state... [id=arn:aws:iam::975598471165:policy/lambda_dynamodb_token_policy][0m
+[0m[1maws_iam_role_policy_attachment.waf_analyzer_basic: Refreshing state... [id=armageddon-waf-analyzer-role-20260724182352410200000002][0m
+[0m[1maws_api_gateway_authorizer.cognito_api_authorizer: Refreshing state... [id=nhhi4t][0m
+[0m[1maws_cognito_user_group.admin_group: Refreshing state... [id=us-east-1_UeZvl9fmr/admins][0m
+[0m[1maws_cognito_user_pool_domain.cognito_pool_login_domain: Refreshing state... [id=jorun-armageddon9499][0m
+[0m[1maws_cognito_user.user_cognito_1: Refreshing state... [id=us-east-1_UeZvl9fmr/cognitouser1][0m
+[0m[1maws_cognito_resource_server.cognito_pool_server: Refreshing state... [id=us-east-1_UeZvl9fmr|api_rest][0m
+[0m[1maws_cognito_user_group.user_group: Refreshing state... [id=us-east-1_UeZvl9fmr/students][0m
+[0m[1maws_iam_role_policy_attachment.correlation_agent_basic: Refreshing state... [id=armageddon-correlation-agent-role-20260724182352603800000003][0m
+[0m[1maws_cloudwatch_event_target.critical_sns_target: Refreshing state... [id=waf-critical-finding-rule-terraform-20260724182352794100000005][0m
+[0m[1maws_dynamodb_table_item.test_finding: Refreshing state... [id=waf-correlation-findings|finding_id|7ea476d0-1fea-4ff0-a95a-6377faac5cb4][0m
+[0m[1maws_iam_role_policy_attachment.lambda_basic: Refreshing state... [id=chewbacca_lambda_role-20260724182352741000000004][0m
+[0m[1maws_lambda_function.api_lambda_python: Refreshing state... [id=api_lambda_python][0m
+[0m[1maws_lambda_function.api_lambda_node: Refreshing state... [id=api_lambda_node][0m
+[0m[1maws_iam_role_policy.waf_analyzer_policy: Refreshing state... [id=armageddon-waf-analyzer-role:waf-analyzer-permissions][0m
+[0m[1maws_iam_role_policy.correlation_agent_policy: Refreshing state... [id=armageddon-correlation-agent-role:correlation-agent-permissions][0m
+[0m[1maws_api_gateway_method.api_rest_python: Refreshing state... [id=agm-8y22tce4s1-to7x4u-GET][0m
+[0m[1maws_api_gateway_method.api_rest_node: Refreshing state... [id=agm-8y22tce4s1-nh2scc-GET][0m
+[0m[1maws_iam_role_policy_attachment.lambda_dynamodb_attach: Refreshing state... [id=chewbacca_lambda_role-20260724182415732600000008][0m
+[0m[1maws_cognito_user_pool_client.cognito_pool_client: Refreshing state... [id=5bnerllohq0m6m0417oseukfsd][0m
+[0m[1maws_iam_role_policy_attachment.soar_agent_basic: Refreshing state... [id=armageddon-soar-agent-role-20260724182352268800000001][0m
+[0m[1maws_iam_role_policy.soar_agent_policy: Refreshing state... [id=armageddon-soar-agent-role:soar-agent-permissions][0m
+[0m[1maws_lambda_function.waf_bedrock_analyzer: Refreshing state... [id=waf-bedrock-analyzer][0m
+[0m[1maws_cognito_user_in_group.cognito_user_in_group_admin: Refreshing state... [id=terraform-20260724182354958000000007][0m
+[0m[1maws_cognito_user_in_group.cognito_user_in_group_student: Refreshing state... [id=terraform-20260724182354887300000006][0m
+[0m[1maws_lambda_function.waf_threat_correlation_agent: Refreshing state... [id=waf-threat-correlation-agent][0m
+[0m[1maws_lambda_function.unused_token_detector: Refreshing state... [id=unused-token-detector][0m
+[0m[1maws_lambda_function.soar_response_agent: Refreshing state... [id=soar-response-agent][0m
+[0m[1maws_wafv2_web_acl.token_api_waf: Refreshing state... [id=83d90097-a737-40b9-b04b-10b62e32d730][0m
+[0m[1maws_lambda_permission.node_lambda_permission: Refreshing state... [id=AllowMyDemoAPIInvoke][0m
+[0m[1maws_api_gateway_integration.api_rest_node: Refreshing state... [id=agi-8y22tce4s1-nh2scc-GET][0m
+[0m[1maws_lambda_permission.python_lambda_permission: Refreshing state... [id=AllowMyDemoAPIInvoke][0m
+[0m[1maws_api_gateway_integration.api_rest_python: Refreshing state... [id=agi-8y22tce4s1-to7x4u-GET][0m
+[0m[1maws_api_gateway_deployment.rest_api_deployment: Refreshing state... [id=yybt2a][0m
+[0m[1maws_iam_role_policy.eventbridge_invoke_policy: Refreshing state... [id=eventbridge_token_detector_role:eventbridge_invoke_detector][0m
+[0m[1maws_scheduler_schedule.unused_token_check: Refreshing state... [id=default/unused-token-check][0m
+[0m[1maws_lambda_permission.medium_high_eventbridge_invoke: Refreshing state... [id=AllowMediumHighRuleInvokeSOAR][0m
+[0m[1maws_lambda_permission.critical_eventbridge_invoke: Refreshing state... [id=AllowCriticalRuleInvokeSOAR][0m
+[0m[1maws_cloudwatch_event_target.medium_high_soar_target: Refreshing state... [id=waf-medium-high-finding-rule-terraform-20260724182431114700000009][0m
+[0m[1maws_cloudwatch_event_target.critical_soar_target: Refreshing state... [id=waf-critical-finding-rule-terraform-2026072418243111470000000a][0m
+[0m[1maws_api_gateway_stage.rest_api_stage: Refreshing state... [id=ags-8y22tce4s1-prod][0m
+[0m[1maws_lambda_permission.eventbridge_invoke_detector: Refreshing state... [id=AllowEventBridgeScheduler][0m
+[0m[1maws_wafv2_web_acl_association.token_api_waf_association: Refreshing state... [id=arn:aws:wafv2:us-east-1:975598471165:regional/webacl/token-api-waf/83d90097-a737-40b9-b04b-10b62e32d730,arn:aws:apigateway:us-east-1::/restapis/8y22tce4s1/stages/prod][0m
+[0m[1maws_wafv2_web_acl_logging_configuration.waf_logging: Refreshing state... [id=arn:aws:wafv2:us-east-1:975598471165:regional/webacl/token-api-waf/83d90097-a737-40b9-b04b-10b62e32d730][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_cloudwatch_log_group.executive_report_log_group[0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "executive_report_log_group" {
+      [32m+[0m[0m arn               = (known after apply)
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m log_group_class   = (known after apply)
+      [32m+[0m[0m name              = "/aws/lambda/executive-dashboard-agent"
+      [32m+[0m[0m name_prefix       = (known after apply)
+      [32m+[0m[0m retention_in_days = 7
+      [32m+[0m[0m skip_destroy      = false
+      [32m+[0m[0m tags              = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+        }
+      [32m+[0m[0m tags_all          = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+          [32m+[0m[0m "Project"   = "armageddon-12ab"
+        }
+    }
+
+[1m  # aws_dynamodb_table_item.test_finding[0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_dynamodb_table_item" "test_finding" {
+        id         = "waf-correlation-findings|finding_id|7ea476d0-1fea-4ff0-a95a-6377faac5cb4"
+      [33m~[0m[0m item       = jsonencode(
+          [33m~[0m[0m {
+              [31m-[0m[0m incident_id           = {
+                  [31m-[0m[0m S = "INC-7ea476d0-1fea-4ff0-a95a-6377faac5cb4"
+                }
+              [31m-[0m[0m response_playbook     = {
+                  [31m-[0m[0m S = "CREATE_AND_ESCALATE_INCIDENT"
+                }
+              [31m-[0m[0m response_processed_at = {
+                  [31m-[0m[0m S = "2026-07-25T18:35:19.509259+00:00"
+                }
+              [31m-[0m[0m sns_message_id        = {
+                  [31m-[0m[0m S = "c9288276-68e5-5013-a43e-e0a96cc2f225"
+                }
+              [33m~[0m[0m status                = {
+                  [33m~[0m[0m S = "RESPONSE_COMPLETED" [33m->[0m[0m "OPEN"
+                }
+                [90m# (16 unchanged attributes hidden)[0m[0m
+            }
+        )
+        [90m# (2 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # aws_iam_role.executive_report_role[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "executive_report_role" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = false
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "armageddon-executive-report-role"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags                  = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+        }
+      [32m+[0m[0m tags_all              = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+          [32m+[0m[0m "Project"   = "armageddon-12ab"
+        }
+      [32m+[0m[0m unique_id             = (known after apply)
+
+      [32m+[0m[0m inline_policy (known after apply)
+    }
+
+[1m  # aws_iam_role_policy.executive_report_policy[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy" "executive_report_policy" {
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m name        = "executive-report-permissions"
+      [32m+[0m[0m name_prefix = (known after apply)
+      [32m+[0m[0m policy      = (known after apply)
+      [32m+[0m[0m role        = (known after apply)
+    }
+
+[1m  # aws_iam_role_policy_attachment.executive_report_basic[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "executive_report_basic" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      [32m+[0m[0m role       = "armageddon-executive-report-role"
+    }
+
+[1m  # aws_lambda_function.executive_dashboard_agent[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_function" "executive_dashboard_agent" {
+      [32m+[0m[0m architectures                  = (known after apply)
+      [32m+[0m[0m arn                            = (known after apply)
+      [32m+[0m[0m code_sha256                    = (known after apply)
+      [32m+[0m[0m filename                       = "./build/executive_dashboard_agent.zip"
+      [32m+[0m[0m function_name                  = "executive-dashboard-agent"
+      [32m+[0m[0m handler                        = "executive_dashboard_agent.lambda_handler"
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m invoke_arn                     = (known after apply)
+      [32m+[0m[0m last_modified                  = (known after apply)
+      [32m+[0m[0m layers                         = (known after apply)
+      [32m+[0m[0m memory_size                    = 1024
+      [32m+[0m[0m package_type                   = "Zip"
+      [32m+[0m[0m publish                        = false
+      [32m+[0m[0m qualified_arn                  = (known after apply)
+      [32m+[0m[0m qualified_invoke_arn           = (known after apply)
+      [32m+[0m[0m reserved_concurrent_executions = -1
+      [32m+[0m[0m role                           = (known after apply)
+      [32m+[0m[0m runtime                        = "python3.13"
+      [32m+[0m[0m signing_job_arn                = (known after apply)
+      [32m+[0m[0m signing_profile_version_arn    = (known after apply)
+      [32m+[0m[0m skip_destroy                   = false
+      [32m+[0m[0m source_code_hash               = "C1WnmU48yg516aMybMTaIibPvBZT52QXRXsdvlZXtsE="
+      [32m+[0m[0m source_code_size               = (known after apply)
+      [32m+[0m[0m tags                           = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+        }
+      [32m+[0m[0m tags_all                       = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+          [32m+[0m[0m "Project"   = "armageddon-12ab"
+        }
+      [32m+[0m[0m timeout                        = 120
+      [32m+[0m[0m version                        = (known after apply)
+
+      [32m+[0m[0m environment {
+          [32m+[0m[0m variables = {
+              [32m+[0m[0m "BEDROCK_MODEL_ID"           = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
+              [32m+[0m[0m "CORRELATION_FINDINGS_TABLE" = "waf-correlation-findings"
+              [32m+[0m[0m "ENABLE_BEDROCK"             = "true"
+              [32m+[0m[0m "MAX_ITEMS_PER_TABLE"        = "5000"
+              [32m+[0m[0m "ORGANIZATION_NAME"          = "SEIR Cloud Security"
+              [32m+[0m[0m "REPORT_BUCKET"              = "chewbacca-s3-975598471165"
+              [32m+[0m[0m "REPORT_PERIOD_HOURS"        = "24"
+              [32m+[0m[0m "REPORT_PREFIX"              = "executive-reports"
+              [32m+[0m[0m "REPORT_TITLE"               = "Executive Security Report"
+              [32m+[0m[0m "SECURITY_INCIDENTS_TABLE"   = "security-incidents"
+              [32m+[0m[0m "WAF_EVENTS_TABLE"           = "waf-events"
+            }
+        }
+
+      [32m+[0m[0m ephemeral_storage {
+          [32m+[0m[0m size = 512
+        }
+
+      [32m+[0m[0m logging_config (known after apply)
+
+      [32m+[0m[0m tracing_config (known after apply)
+    }
+
+[1m  # aws_lambda_layer_version.reportlab_layer[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_layer_version" "reportlab_layer" {
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m code_sha256                 = (known after apply)
+      [32m+[0m[0m compatible_runtimes         = [
+          [32m+[0m[0m "python3.13",
+        ]
+      [32m+[0m[0m created_date                = (known after apply)
+      [32m+[0m[0m description                 = "ReportLab 4.4.3 — PDF generation for executive reports"
+      [32m+[0m[0m filename                    = "./build/reportlab_layer.zip"
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m layer_arn                   = (known after apply)
+      [32m+[0m[0m layer_name                  = "reportlab-layer"
+      [32m+[0m[0m signing_job_arn             = (known after apply)
+      [32m+[0m[0m signing_profile_version_arn = (known after apply)
+      [32m+[0m[0m skip_destroy                = false
+      [32m+[0m[0m source_code_hash            = (known after apply)
+      [32m+[0m[0m source_code_size            = (known after apply)
+      [32m+[0m[0m version                     = (known after apply)
+    }
+
+[1m  # aws_s3_bucket.executive_reports[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket" "executive_reports" {
+      [32m+[0m[0m acceleration_status         = (known after apply)
+      [32m+[0m[0m acl                         = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m bucket                      = "chewbacca-s3-975598471165"
+      [32m+[0m[0m bucket_domain_name          = (known after apply)
+      [32m+[0m[0m bucket_prefix               = (known after apply)
+      [32m+[0m[0m bucket_regional_domain_name = (known after apply)
+      [32m+[0m[0m force_destroy               = true
+      [32m+[0m[0m hosted_zone_id              = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m object_lock_enabled         = (known after apply)
+      [32m+[0m[0m policy                      = (known after apply)
+      [32m+[0m[0m region                      = (known after apply)
+      [32m+[0m[0m request_payer               = (known after apply)
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+          [32m+[0m[0m "Name"      = "Executive Security Reports"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Lab"       = "12b"
+          [32m+[0m[0m "Managedby" = "Terraform"
+          [32m+[0m[0m "Name"      = "Executive Security Reports"
+          [32m+[0m[0m "Project"   = "armageddon-12ab"
+        }
+      [32m+[0m[0m website_domain              = (known after apply)
+      [32m+[0m[0m website_endpoint            = (known after apply)
+
+      [32m+[0m[0m cors_rule (known after apply)
+
+      [32m+[0m[0m grant (known after apply)
+
+      [32m+[0m[0m lifecycle_rule (known after apply)
+
+      [32m+[0m[0m logging (known after apply)
+
+      [32m+[0m[0m object_lock_configuration (known after apply)
+
+      [32m+[0m[0m replication_configuration (known after apply)
+
+      [32m+[0m[0m server_side_encryption_configuration (known after apply)
+
+      [32m+[0m[0m versioning (known after apply)
+
+      [32m+[0m[0m website (known after apply)
+    }
+
+[1m  # aws_s3_bucket_public_access_block.executive_reports_public_access[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_public_access_block" "executive_reports_public_access" {
+      [32m+[0m[0m block_public_acls       = true
+      [32m+[0m[0m block_public_policy     = true
+      [32m+[0m[0m bucket                  = (known after apply)
+      [32m+[0m[0m id                      = (known after apply)
+      [32m+[0m[0m ignore_public_acls      = true
+      [32m+[0m[0m restrict_public_buckets = true
+    }
+
+[1m  # aws_s3_bucket_versioning.executive_reports_versioning[0m will be created
+[0m  [32m+[0m[0m resource "aws_s3_bucket_versioning" "executive_reports_versioning" {
+      [32m+[0m[0m bucket = (known after apply)
+      [32m+[0m[0m id     = (known after apply)
+
+      [32m+[0m[0m versioning_configuration {
+          [32m+[0m[0m mfa_delete = (known after apply)
+          [32m+[0m[0m status     = "Enabled"
+        }
+    }
+
+[1mPlan:[0m [0m9 to add, 1 to change, 0 to destroy.
+
+Changes to Outputs:
+  [32m+[0m[0m executive_report_bucket         = "chewbacca-s3-975598471165"
+  [32m+[0m[0m executive_report_function_name  = "executive-dashboard-agent"
+  [32m+[0m[0m reportlab_layer_arn             = (known after apply)
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  with aws_iam_role.lambda_role,
+[33m│[0m [0m  on 9-chewbacca-iam.tf line 1, in resource "aws_iam_role" "lambda_role":
+[33m│[0m [0m   1: resource "aws_iam_role" "lambda_role" [4m{[0m[0m
+[33m│[0m [0m
+[33m│[0m [0minline_policy is deprecated. Use the aws_iam_role_policy resource instead.
+[33m│[0m [0mIf Terraform should exclusively manage all inline policy associations (the
+[33m│[0m [0mcurrent behavior of this argument), use the aws_iam_role_policies_exclusive
+[33m│[0m [0mresource as well.
+[33m╵[0m[0m
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

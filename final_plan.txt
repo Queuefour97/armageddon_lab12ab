@@ -1,0 +1,114 @@
+[0m[1mdata.archive_file.waf_analyzer_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.example_python: Reading...[0m[0m
+[0m[1mdata.archive_file.detection_lambda: Reading...[0m[0m
+[0m[1mdata.archive_file.executive_report_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.soar_agent_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.correlation_agent_zip: Reading...[0m[0m
+[0m[1mdata.archive_file.node_example: Reading...[0m[0m
+[0m[1mdata.archive_file.detection_lambda: Read complete after 0s [id=d563957411fc88390566c873fe4e96a1ef355133][0m
+[0m[1mdata.archive_file.node_example: Read complete after 0s [id=a9cedeaee943ce8ccccda874153a4db641759882][0m
+[0m[1mdata.archive_file.example_python: Read complete after 0s [id=bde7ae1dcee41eac4c56f7877e3dfdecdada3fe4][0m
+[0m[1mdata.archive_file.waf_analyzer_zip: Read complete after 0s [id=061ced7600ef11fa512fc30b0a9fd3d6c982e2c2][0m
+[0m[1mdata.archive_file.correlation_agent_zip: Read complete after 0s [id=54d8d3f61366b75c860c74ee139d3913914aeb9d][0m
+[0m[1mdata.archive_file.executive_report_zip: Read complete after 0s [id=ffdbdda7ea97143a90ea90ffa8ad3fab1f24ca76][0m
+[0m[1mdata.archive_file.soar_agent_zip: Read complete after 0s [id=ed9b9e2f9cd68d4137a6f67c56c821e6d164e280][0m
+[0m[1maws_cloudwatch_event_rule.critical_finding_rule: Refreshing state... [id=waf-critical-finding-rule][0m
+[0m[1maws_cloudwatch_log_group.executive_report_log_group: Refreshing state... [id=/aws/lambda/executive-dashboard-agent][0m
+[0m[1maws_iam_role.executive_report_role: Refreshing state... [id=armageddon-executive-report-role][0m
+[0m[1maws_cloudwatch_log_group.waf_analyzer_logs: Refreshing state... [id=/aws/lambda/waf-bedrock-analyzer][0m
+[0m[1maws_iam_role.correlation_agent_role: Refreshing state... [id=armageddon-correlation-agent-role][0m
+[0m[1maws_api_gateway_rest_api.lambda_rest_api: Refreshing state... [id=8y22tce4s1][0m
+[0m[1maws_iam_role.eventbridge_scheduler_role: Refreshing state... [id=eventbridge_token_detector_role][0m
+[0m[1maws_cloudwatch_event_rule.medium_high_finding_rule: Refreshing state... [id=waf-medium-high-finding-rule][0m
+[0m[1maws_iam_role.soar_agent_role: Refreshing state... [id=armageddon-soar-agent-role][0m
+[0m[1maws_dynamodb_table.correlation_findings: Refreshing state... [id=waf-correlation-findings][0m
+[0m[1maws_dynamodb_table.token_tracking: Refreshing state... [id=token-tracking][0m
+[0m[1maws_dynamodb_table.security_incidents: Refreshing state... [id=security-incidents][0m
+[0m[1mdata.aws_region.current: Reading...[0m[0m
+[0m[1mdata.aws_region.current: Read complete after 0s [id=us-east-1][0m
+[0m[1mdata.aws_caller_identity.current: Reading...[0m[0m
+[0m[1maws_cognito_user_pool.cognito_pool: Refreshing state... [id=us-east-1_UeZvl9fmr][0m
+[0m[1mdata.aws_caller_identity.current: Read complete after 0s [id=975598471165][0m
+[0m[1maws_cloudwatch_log_group.correlation_agent_logs: Refreshing state... [id=/aws/lambda/waf-threat-correlation-agent][0m
+[0m[1mdata.aws_partition.current: Reading...[0m[0m
+[0m[1mdata.aws_partition.current: Read complete after 0s [id=aws][0m
+[0m[1maws_iam_role.lambda_role: Refreshing state... [id=chewbacca_lambda_role][0m
+[0m[1maws_cloudwatch_log_group.waf_logs_chewbacca: Refreshing state... [id=aws-waf-logs-chewbacca][0m
+[0m[1maws_cloudwatch_log_group.waf_logs: Refreshing state... [id=aws-waf-logs-armageddon][0m
+[0m[1maws_cloudwatch_log_group.detector_log_group: Refreshing state... [id=/aws/lambda/unused-token-detector][0m
+[0m[1maws_iam_role.waf_analyzer_role: Refreshing state... [id=armageddon-waf-analyzer-role][0m
+[0m[1maws_cloudwatch_log_group.soar_agent_logs: Refreshing state... [id=/aws/lambda/soar-response-agent][0m
+[0m[1maws_sns_topic.critical_alert: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert][0m
+[0m[1maws_lambda_layer_version.reportlab_layer: Refreshing state... [id=arn:aws:lambda:us-east-1:975598471165:layer:reportlab-layer:1][0m
+[0m[1maws_dynamodb_table.waf_events: Refreshing state... [id=waf-events][0m
+[0m[1maws_api_gateway_resource.api_rest_node: Refreshing state... [id=nh2scc][0m
+[0m[1maws_api_gateway_resource.api_rest_python: Refreshing state... [id=to7x4u][0m
+[0m[1maws_s3_bucket.executive_reports: Refreshing state... [id=chewbacca-s3-975598471165][0m
+[0m[1maws_iam_role_policy_attachment.executive_report_basic: Refreshing state... [id=armageddon-executive-report-role-20260725214832083100000001][0m
+[0m[1maws_iam_role_policy_attachment.correlation_agent_basic: Refreshing state... [id=armageddon-correlation-agent-role-20260724182352603800000003][0m
+[0m[1maws_iam_role_policy_attachment.soar_agent_basic: Refreshing state... [id=armageddon-soar-agent-role-20260724182352268800000001][0m
+[0m[1maws_dynamodb_table_item.test_finding: Refreshing state... [id=waf-correlation-findings|finding_id|7ea476d0-1fea-4ff0-a95a-6377faac5cb4][0m
+[0m[1maws_iam_policy.lambda_dynamodb_policy: Refreshing state... [id=arn:aws:iam::975598471165:policy/lambda_dynamodb_token_policy][0m
+[0m[1maws_iam_role_policy_attachment.waf_analyzer_basic: Refreshing state... [id=armageddon-waf-analyzer-role-20260724182352410200000002][0m
+[0m[1maws_sns_topic_policy.critical_alert_policy: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert][0m
+[0m[1maws_iam_role_policy.soar_agent_policy: Refreshing state... [id=armageddon-soar-agent-role:soar-agent-permissions][0m
+[0m[1maws_cloudwatch_event_target.critical_sns_target: Refreshing state... [id=waf-critical-finding-rule-terraform-20260724182352794100000005][0m
+[0m[1maws_sns_topic_subscription.critical_alert_email: Refreshing state... [id=arn:aws:sns:us-east-1:975598471165:critical-alert:c78d64a8-0d3d-4ece-95ac-634a70c5f0a0][0m
+[0m[1maws_iam_role_policy.waf_analyzer_policy: Refreshing state... [id=armageddon-waf-analyzer-role:waf-analyzer-permissions][0m
+[0m[1maws_iam_role_policy.correlation_agent_policy: Refreshing state... [id=armageddon-correlation-agent-role:correlation-agent-permissions][0m
+[0m[1maws_iam_role_policy_attachment.lambda_basic: Refreshing state... [id=chewbacca_lambda_role-20260724182352741000000004][0m
+[0m[1maws_lambda_function.api_lambda_node: Refreshing state... [id=api_lambda_node][0m
+[0m[1maws_lambda_function.api_lambda_python: Refreshing state... [id=api_lambda_python][0m
+[0m[1maws_lambda_function.waf_bedrock_analyzer: Refreshing state... [id=waf-bedrock-analyzer][0m
+[0m[1maws_lambda_function.soar_response_agent: Refreshing state... [id=soar-response-agent][0m
+[0m[1maws_cognito_user_pool_domain.cognito_pool_login_domain: Refreshing state... [id=jorun-armageddon9499][0m
+[0m[1maws_cognito_resource_server.cognito_pool_server: Refreshing state... [id=us-east-1_UeZvl9fmr|api_rest][0m
+[0m[1maws_cognito_user_group.admin_group: Refreshing state... [id=us-east-1_UeZvl9fmr/admins][0m
+[0m[1maws_cognito_user_group.user_group: Refreshing state... [id=us-east-1_UeZvl9fmr/students][0m
+[0m[1maws_cognito_user.user_cognito_1: Refreshing state... [id=us-east-1_UeZvl9fmr/cognitouser1][0m
+[0m[1maws_api_gateway_authorizer.cognito_api_authorizer: Refreshing state... [id=nhhi4t][0m
+[0m[1maws_lambda_function.waf_threat_correlation_agent: Refreshing state... [id=waf-threat-correlation-agent][0m
+[0m[1maws_iam_role_policy_attachment.lambda_dynamodb_attach: Refreshing state... [id=chewbacca_lambda_role-20260724182415732600000008][0m
+[0m[1maws_cognito_user_pool_client.cognito_pool_client: Refreshing state... [id=5bnerllohq0m6m0417oseukfsd][0m
+[0m[1maws_api_gateway_method.api_rest_node: Refreshing state... [id=agm-8y22tce4s1-nh2scc-GET][0m
+[0m[1maws_api_gateway_method.api_rest_python: Refreshing state... [id=agm-8y22tce4s1-to7x4u-GET][0m
+[0m[1maws_lambda_permission.python_lambda_permission: Refreshing state... [id=AllowMyDemoAPIInvoke][0m
+[0m[1maws_lambda_permission.node_lambda_permission: Refreshing state... [id=AllowMyDemoAPIInvoke][0m
+[0m[1maws_cognito_user_in_group.cognito_user_in_group_student: Refreshing state... [id=terraform-20260724182354887300000006][0m
+[0m[1maws_cognito_user_in_group.cognito_user_in_group_admin: Refreshing state... [id=terraform-20260724182354958000000007][0m
+[0m[1maws_api_gateway_integration.api_rest_node: Refreshing state... [id=agi-8y22tce4s1-nh2scc-GET][0m
+[0m[1maws_lambda_function.unused_token_detector: Refreshing state... [id=unused-token-detector][0m
+[0m[1maws_cloudwatch_event_target.critical_soar_target: Refreshing state... [id=waf-critical-finding-rule-terraform-2026072418243111470000000a][0m
+[0m[1maws_lambda_permission.medium_high_eventbridge_invoke: Refreshing state... [id=AllowMediumHighRuleInvokeSOAR][0m
+[0m[1maws_lambda_permission.critical_eventbridge_invoke: Refreshing state... [id=AllowCriticalRuleInvokeSOAR][0m
+[0m[1maws_cloudwatch_event_target.medium_high_soar_target: Refreshing state... [id=waf-medium-high-finding-rule-terraform-20260724182431114700000009][0m
+[0m[1maws_api_gateway_integration.api_rest_python: Refreshing state... [id=agi-8y22tce4s1-to7x4u-GET][0m
+[0m[1maws_wafv2_web_acl.token_api_waf: Refreshing state... [id=83d90097-a737-40b9-b04b-10b62e32d730][0m
+[0m[1maws_api_gateway_deployment.rest_api_deployment: Refreshing state... [id=yybt2a][0m
+[0m[1maws_iam_role_policy.executive_report_policy: Refreshing state... [id=armageddon-executive-report-role:executive-report-permissions][0m
+[0m[1maws_s3_bucket_versioning.executive_reports_versioning: Refreshing state... [id=chewbacca-s3-975598471165][0m
+[0m[1maws_s3_bucket_public_access_block.executive_reports_public_access: Refreshing state... [id=chewbacca-s3-975598471165][0m
+[0m[1maws_api_gateway_stage.rest_api_stage: Refreshing state... [id=ags-8y22tce4s1-prod][0m
+[0m[1maws_lambda_function.executive_dashboard_agent: Refreshing state... [id=executive-dashboard-agent][0m
+[0m[1maws_iam_role_policy.eventbridge_invoke_policy: Refreshing state... [id=eventbridge_token_detector_role:eventbridge_invoke_detector][0m
+[0m[1maws_scheduler_schedule.unused_token_check: Refreshing state... [id=default/unused-token-check][0m
+[0m[1maws_lambda_permission.eventbridge_invoke_detector: Refreshing state... [id=AllowEventBridgeScheduler][0m
+[0m[1maws_wafv2_web_acl_logging_configuration.waf_logging: Refreshing state... [id=arn:aws:wafv2:us-east-1:975598471165:regional/webacl/token-api-waf/83d90097-a737-40b9-b04b-10b62e32d730][0m
+[0m[1maws_wafv2_web_acl_association.token_api_waf_association: Refreshing state... [id=arn:aws:wafv2:us-east-1:975598471165:regional/webacl/token-api-waf/83d90097-a737-40b9-b04b-10b62e32d730,arn:aws:apigateway:us-east-1::/restapis/8y22tce4s1/stages/prod][0m
+
+[0m[1m[32mNo changes.[0m[1m Your infrastructure matches the configuration.[0m
+
+[0mTerraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mArgument is deprecated[0m
+[33m│[0m [0m
+[33m│[0m [0m[0m  with aws_iam_role.lambda_role,
+[33m│[0m [0m  on 9-chewbacca-iam.tf line 1, in resource "aws_iam_role" "lambda_role":
+[33m│[0m [0m   1: resource "aws_iam_role" "lambda_role" [4m{[0m[0m
+[33m│[0m [0m
+[33m│[0m [0minline_policy is deprecated. Use the aws_iam_role_policy resource instead.
+[33m│[0m [0mIf Terraform should exclusively manage all inline policy associations (the
+[33m│[0m [0mcurrent behavior of this argument), use the aws_iam_role_policies_exclusive
+[33m│[0m [0mresource as well.
+[33m╵[0m[0m

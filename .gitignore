@@ -1,0 +1,18 @@
+# Terraform state files — contain sensitive data including email addresses
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform working directory
+.terraform/
+
+# Including .terraform.lock.hcl for a solo lab it's fine to ignore it, but in a team project you'd remove that line and commit the lock file.
+.terraform.lock.hcl
+
+# Variable files containing secrets
+terraform.tfvars
+
+# Lambda build artifacts — auto-generated, no need to commit
+build/
+
+# Test output files
+*.json

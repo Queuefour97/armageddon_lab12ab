@@ -1,0 +1,140 @@
+### 📊 Phase 4: Executive Reporting Pipeline Flow
+
+This diagram illustrates the journey of the data from the operational DynamoDB tables, through the Lambda compute environment (where the heavy lifting and PDF generation happen in RAM), and finally into the date-partitioned S3 bucket.
+
+```mermaid
+flowchart TD
+    subgraph Trigger["⏱️ Execution Trigger"]
+        EB["EventBridge Schedule<br/>Daily / Manual"]
+    end
+
+    subgraph Compute["⚡ Lambda: Executive Dashboard Agent<br/>1024 MB RAM / 120s Timeout"]
+        direction TB
+        TimeCalc["1. Calculate Time Windows<br/>Current 24h vs Previous 24h"]
+        Scan["2. Paginated DynamoDB Scan<br/>Capped at 5000 items"]
+        Math["3. Deterministic Math<br/>Collections.Counter & Metrics"]
+        AI["4. Bedrock Prompt<br/>Strict JSON Schema + Fallback"]
+        PDFGen["5. In-Memory PDF Generation<br/>io.BytesIO + ReportLab"]
+        Upload["6. Dual Upload<br/>PDF + JSON Parity"]
+        
+        TimeCalc --> Scan
+        Scan --> Math
+        Math --> AI
+        AI --> PDFGen
+        PDFGen --> Upload
+    end
+
+    subgraph DataSources["💾 DynamoDB Data Layer<br/>Phase 1-3 Telemetry"]
+        DDB1[("waf-events")]
+        DDB2[("correlation-findings")]
+        DDB3[("security-incidents")]
+    end
+
+    subgraph AI["🧠 Amazon Bedrock"]
+        BR["Claude 3 Haiku<br/>Executive Narrative"]
+    end
+
+    subgraph Storage["📦 Amazon S3 Storage<br/>chewbacca-s3.../executive-reports/"]
+        S3_PDF["pdf/YYYY/MM/DD/report.pdf"]
+        S3_JSON["json/YYYY/MM/DD/report.json"]
+    end
+
+    EB -->|Invoke| TimeCalc
+    Scan -->|Paginated Scan| DDB1
+    Scan -->|Paginated Scan| DDB2
+    Scan -->|Paginated Scan| DDB3
+    
+    AI -->|Evidence Package| BR
+    BR -->|JSON Narrative<br/>or Fallback| AI
+    
+    Upload -->|PutObject| S3_PDF
+    Upload -->|PutObject| S3_JSON
+
+    %% Styling
+    classDef trigger fill:#fff9c4,stroke:#f9a825,stroke-width:2px,color:#000
+    classDef compute fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#000
+    classDef storage fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
+    classDef ai fill:#ede7f6,stroke:#4527a0,stroke-width:2px,color:#000
+    classDef ddb fill:#e0f2f1,stroke:#00695c,stroke-width:2px,color:#000
+
+    class EB trigger
+    class TimeCalc,Scan,Math,AI,PDFGen,Upload compute
+    class S3_PDF,S3_JSON storage
+    class BR ai
+    class DDB1,DDB2,DDB3 ddb
+```
+
+---
+
+### ⚙️ Detailed Breakdown: How the Python Code Works
+
+Following the flow in the diagram, here is exactly how your Python script executes, step-by-step:
+
+#### Step 1: Time Window Calculation (The Baseline)
+The `lambda_handler` calculates two distinct 24-hour (or configurable) time windows:
+*   **Current Period:** From 24 hours ago up to right now.
+*   **Previous Period:** From 48 hours ago to 24 hours ago.
+*   *Why this matters:* Executives don't just want to know *what* happened; they want to know the *trend*. By establishing a previous baseline, the code can later calculate `period_changes` (e.g., "WAF blocks increased by 15% compared to yesterday").
+
+#### Step 2: Data Retrieval & Safety Valves (The Sweep)
+The `retrieve_reporting_data` function queries all three DynamoDB tables (`waf-events`, `correlation-findings`, `security-incidents`). 
+*   **Pagination:** It uses a custom `scan_table` helper that loops using `LastEvaluatedKey`. DynamoDB limits a single Scan to 1 MB of data; this loop ensures you get all available data up to your limit.
+*   **The Safety Valve:** It strictly enforces the `MAX_ITEMS_PER_TABLE` (5,000) cap. If a massive DDoS attack generated 100,000 events, this cap prevents the Lambda from exhausting its 1024 MB RAM or timing out, protecting your AWS bill.
+*   **Python-Side Filtering:** It uses `filter_records_by_period` to discard records that fall outside the calculated time windows.
+
+#### Step 3: Deterministic Math (The Aggregation)
+Instead of asking the AI to do math (which causes hallucinations), the code uses Python’s `collections.Counter` to rapidly aggregate the data:
+*   **WAF Metrics:** Counts blocks vs. allows, identifies top source IPs, and top triggered rules.
+*   **Finding Metrics:** Calculates average risk scores and identifies the single highest-risk source IP.
+*   **Incident Metrics:** Tracks open vs. resolved incidents and calculates the exact age (in hours) of the oldest open ticket.
+
+#### Step 4: AI Executive Narrative (The Translation)
+The aggregated metrics are packaged into a compact `evidence` dictionary and sent to Bedrock. 
+*   **Strict Prompting:** The prompt explicitly forbids the AI from inventing facts, claiming successful exploitation, or recommending automatic containment. It forces the AI to return a strict JSON schema.
+*   **Graceful Degradation:** If Bedrock fails, times out, or is disabled, the `create_fallback_narrative` function generates a safe, deterministic summary using Python string interpolation. The pipeline *never* breaks.
+
+#### Step 5: Synchronized Document Assembly & In-Memory PDF
+The `build_report_document` function merges the deterministic metrics and the AI narrative into a single, unified Python dictionary. 
+*   **Data Parity:** This guarantees that the PDF and the JSON file will contain the exact same data.
+*   **ReportLab Generation:** The `generate_pdf` function builds a "story" (a list of visual elements like tables, paragraphs, and page breaks). It writes this entire document to an `io.BytesIO()` memory buffer. **It never touches the disk.**
+
+#### Step 6: Date-Partitioned S3 Upload
+Finally, the `upload_report_artifacts` function takes the raw bytes from memory and the JSON dictionary, and pushes them to S3.
+*   **Partitioning:** It generates keys like `executive-reports/2026/07/14/pdf/...`. This is the AWS gold standard, allowing you to easily apply S3 Lifecycle Rules later (e.g., "Move to Glacier after 90 days").
+*   **Metadata:** It attaches custom S3 metadata (`report-id`, `security-posture`) to the objects, making them easily searchable via S3 Inventory or Athena later.
+
+---
+
+### 🏆 Engineering Triumphs (Why this is Senior-Level Code)
+
+1. **In-Memory PDF Generation (`io.BytesIO`)**: Writing to Lambda's `/tmp` ephemeral storage requires cleanup logic and can lead to "No space left on device" errors if the Lambda crashes before cleanup. By building the PDF in RAM and streaming it directly to S3, you eliminated filesystem management entirely.
+2. **Dual Output (PDF + JSON)**: PDFs are terrible for data analysis, and JSON is terrible for human reading. By generating both from the exact same data payload in the same execution, you satisfy both the CISO (who wants a pretty PDF) and the Data Engineering team (who wants raw JSON for a BI dashboard).
+3. **Defensive Timestamp Parsing**: Your `normalize_timestamp` function is brilliant. It handles integers, floats, millisecond epochs, and ISO-8601 strings, gracefully returning `None` if the data is malformed rather than crashing the entire report.
+
+---
+
+### 🔧 Lab Integration & Required Refinements
+
+To make this phase perfectly align with the high standards of Phases 1-3, I recommend addressing these three items before deploying:
+
+#### 1. Scope Down the Bedrock IAM Permission
+Your README showed `"Resource": "*"` for `bedrock:InvokeModel`. As we established in Phase 3, this is a security anti-pattern. Update your IAM policy to target the specific model ARN:
+```json
+{
+  "Sid": "InvokeBedrock",
+  "Effect": "Allow",
+  "Action": ["bedrock:InvokeModel"],
+  "Resource": "arn:aws:bedrock:REGION::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
+}
+```
+
+#### 2. The `reportlab` Dependency Packaging Strategy
+Because `reportlab` relies on C-extensions to render fonts and graphics, it is **not** included in the standard AWS Lambda Python runtime. You cannot just upload the `.py` file. You have two options for your lab:
+*   **Option A (Lambda Layer - Recommended)**: Build a Lambda Layer. You can do this by spinning up an Amazon Linux Docker container, running `pip install reportlab -t /python`, zipping the `/python` folder, and uploading it as a Layer.
+*   **Option B (Local Packaging)**: If you are on a Mac/Linux machine, run `pip install --platform manylinux2014_x86_64 --target=./package --implementation cp --python-version 3.12 --only-binary=:all: --upgrade reportlab`. Zip the contents of `./package` *along with* your `executive_dashboard_agent.py`, and upload that zip to Lambda.
+
+#### 3. Acknowledge the Scan vs. Query Trade-off
+The code already has a great comment about this: *"A later production revision should use reporting-oriented indexes and Query operations."* 
+In your documentation, explicitly state that for this lab, the `MAX_ITEMS_PER_TABLE` cap makes the `Scan` operation safe and cost-predictable. However, in a real enterprise environment with millions of rows, you would create a Global Secondary Index (GSI) on the `created_at` or `event_epoch` fields to use highly efficient `Query` operations instead.
+
+---
