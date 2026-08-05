@@ -194,11 +194,17 @@ resource "aws_iam_role_policy" "eventbridge_invoke_policy" {
 
   policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [{
+    Statement = [
+      {
       Effect   = "Allow"
-      Action   = "lambda:InvokeFunction"
-      Resource = aws_lambda_function.unused_token_detector.arn
-    }]
+      Action   = ["lambda:InvokeFunction"]
+      Resource = [
+        aws_lambda_function.unused_token_detector.arn,
+          aws_lambda_function.waf_bedrock_analyzer.arn,
+          aws_lambda_function.waf_threat_correlation_agent.arn
+       ]
+      }
+    ]
   })
 }
 
@@ -237,4 +243,73 @@ resource "aws_cloudwatch_log_group" "detector_log_group" {
   tags = {
     Managedby = "Terraform"
   }
+}
+
+##############################################################
+# EventBridge Scheduler — WAF Bedrock Analyzer
+#
+# Automatically triggers waf-bedrock-analyzer every 10 minutes
+# so WAF events are collected without manual invocation.
+# Uses the existing eventbridge_scheduler_role.
+##############################################################
+
+resource "aws_scheduler_schedule" "waf_analyzer_schedule" {
+  name        = "waf-analyzer-schedule"
+  description = "Triggers waf-bedrock-analyzer every 10 minutes to collect WAF events"
+  state       = "ENABLED"
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+
+  schedule_expression = "rate(10 minutes)"
+
+  target {
+    arn      = aws_lambda_function.waf_bedrock_analyzer.arn
+    role_arn = aws_iam_role.eventbridge_scheduler_role.arn
+    input    = jsonencode({})
+  }
+}
+
+resource "aws_lambda_permission" "eventbridge_invoke_waf_analyzer" {
+  statement_id  = "AllowSchedulerInvokeWAFAnalyzer"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.waf_bedrock_analyzer.function_name
+  principal     = "scheduler.amazonaws.com"
+  source_arn    = aws_scheduler_schedule.waf_analyzer_schedule.arn
+}
+
+
+##############################################################
+# EventBridge Scheduler — WAF Threat Correlation Agent
+#
+# Automatically triggers correlation agent every 15 minutes.
+# Runs after the analyzer has had time to collect events.
+# 15 minutes > 10 minutes ensures analyzer runs first.
+##############################################################
+
+resource "aws_scheduler_schedule" "correlation_agent_schedule" {
+  name        = "correlation-agent-schedule"
+  description = "Triggers waf-threat-correlation-agent every 15 minutes"
+  state       = "ENABLED"
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+
+  schedule_expression = "rate(15 minutes)"
+
+  target {
+    arn      = aws_lambda_function.waf_threat_correlation_agent.arn
+    role_arn = aws_iam_role.eventbridge_scheduler_role.arn
+    input    = jsonencode({})
+  }
+}
+
+resource "aws_lambda_permission" "eventbridge_invoke_correlation_agent" {
+  statement_id  = "AllowSchedulerInvokeCorrelationAgent"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.waf_threat_correlation_agent.function_name
+  principal     = "scheduler.amazonaws.com"
+  source_arn    = aws_scheduler_schedule.correlation_agent_schedule.arn
 }
