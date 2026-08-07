@@ -16,3 +16,12 @@ build/
 
 # Test output files
 *.json
+# Temp apply/plan output files
+apply_eventbridge.txt
+apply_iam_update.txt
+plan_eventbridge.txt
+PROOF_A.docx
+QUESTION*.docx
+QUESTION*.pdf
+Good*.docx
+~$*.docx
